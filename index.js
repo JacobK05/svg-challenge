@@ -32,4 +32,26 @@ inquirer
             name: 'shapeColor',
         },
     ])
+    
+    .then(async (response) => {
+        let shape;
+        switch (response.shape) {
+          case 'Square':
+            shape = new Square(response.characters, response.shapeColor, response.textColor);
+            break;
+          case 'Circle':
+            shape = new Circle(response.characters, response.shapeColor, response.textColor);
+            break;
+          case 'Triangle':
+            shape = new Triangle(response.characters, response.shapeColor, response.textColor);
+            break;
+        }
+    
+        try {
+          await promises.writeFile('./examples/logo.svg', shape.render());
+          console.log("Generated logo.svg");
+        } catch (error) {
+          console.error(error);
+        }
+      });
   
