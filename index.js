@@ -1,8 +1,9 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const { Square } = require('./lib/square.js');
-const { Circle } = require('./lib/circle.js');
-const { Triangle } = require('./lib/triangle.js');
+import { promises } from "fs";
+import { Circle }  from './lib/circle.js';
+import { Triangle } from './lib/triangle.js';
+import { Square }  from './lib/square.js';
+import inquirer from "inquirer";
+
 
 inquirer
     .prompt([
@@ -17,7 +18,7 @@ inquirer
             name: 'textColor',
         },
         {
-            type: 'rawlist',
+            type: 'checkbox',
             message: 'Choose a shape from the list below.',
             choices: [
                 { name: 'Square', value: 'Square' },
@@ -48,7 +49,7 @@ inquirer
         }
     
         try {
-          await promises.writeFile('./examples/logo.svg', shape.render());
+          await promises.writeFile('./logo.svg', shape.render());
           console.log("Generated logo.svg");
         } catch (error) {
           console.error(error);
