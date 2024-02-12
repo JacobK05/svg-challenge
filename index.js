@@ -1,9 +1,8 @@
-import { promises } from "fs";
-import { Circle }  from './lib/circle.js';
-import { Triangle } from './lib/triangle.js';
-import { Square }  from './lib/square.js';
-import inquirer from "inquirer";
-
+const inquirer = require('inquirer');
+const fs = require('fs');
+const { Square } = require('./lib/square.js');
+const { Circle } = require('./lib/circle.js');
+const { Triangle } = require('./lib/triangle.js');
 
 inquirer
     .prompt([
@@ -33,26 +32,30 @@ inquirer
             name: 'shapeColor',
         },
     ])
-    
-    .then(async (response) => {
-        let shape;
-        switch (response.shape) {
-          case 'Square':
-            shape = new Square(response.characters, response.shapeColor, response.textColor);
-            break;
-          case 'Circle':
-            shape = new Circle(response.characters, response.shapeColor, response.textColor);
-            break;
-          case 'Triangle':
-            shape = new Triangle(response.characters, response.shapeColor, response.textColor);
-            break;
+    .then((response) => {
+        if (response.shape === 'Square') {
+            const square = new Square(response.characters, response.shapeColor, response.textColor)
+            fs.writeFile('./logo.svg', square.render(), (error) => {
+                if (error) {
+                    console.error(error);
+                }
+            });
+        } else if (response.shape === 'Circle') {
+            const circle = new Circle(response.characters, response.shapeColor, response.textColor)
+            fs.writeFile('./logo.svg', circle.render(), (error) => {
+                if (error) {
+                    console.error(error);
+                }
+            })
+        } else {
+            const triangle = new Triangle(response.characters, response.shapeColor, response.textColor)
+            fs.writeFile('./logo.svg', triangle.render(), (error) => {
+                if (error) {
+                    console.error(error);
+                }
+            })
         }
-    
-        try {
-          await promises.writeFile('./logo.svg', shape.render());
-          console.log("Generated logo.svg");
-        } catch (error) {
-          console.error(error);
-        }
-      });
-  
+    })
+    .then(() => {
+        return console.log("Generated logo.svg")
+    })
