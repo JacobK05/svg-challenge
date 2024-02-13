@@ -16,11 +16,14 @@ For this project I had to use jest and inquire to create a dynamic svg logo make
 ## Installation
 Install nmp i and npm install jest for your dependencies.
 
+
 ## License 
   This project is licensed under the  License. 
 
 ## Usage
 Run npm test to see the passing test. Then run node index.js answer the questions, then open the logo.svg file.
+
+video run through: https://app.screencastify.com/v3/watch/Z8YLqEJ9leb8bQegZAPx 
 
 ## Contributors
 Jacob Kaufenberg

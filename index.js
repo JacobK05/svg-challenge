@@ -17,7 +17,7 @@ inquirer
             name: 'textColor',
         },
         {
-            type: 'checkbox',
+            type: 'rawlist',
             message: 'Choose a shape from the list below.',
             choices: [
                 { name: 'Square', value: 'Square' },
