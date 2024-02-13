@@ -1,0 +1,29 @@
+# Project Name 
+  SVG logo maker 
+  
+  
+
+
+## Description
+For this project I had to use jest and inquire to create a dynamic svg logo maker. Then also created passing test for each shape. Which i have done correctly to successfully create a shape (square, circle, triangle) any three letters you would like, and any color for the shape and text. Ive learned how to  implement inquire and run test to help solve bugs and even typos. I also learned how to use code for other reasons than just a web browser. 
+
+## Table of Contents
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Contributions](#Contributions)
+* [Information](#Info)
+
+## Installation
+Install nmp i and npm install jest for your dependencies.
+
+## License 
+  This project is licensed under the  License. 
+
+## Usage
+Run npm test to see the passing test. Then run node index.js answer the questions, then open the logo.svg file.
+
+## Contributors
+Jacob Kaufenberg
+
+## Information
+Git Hub: JacobK05, Jacob.kaufenberg@icloud.com
